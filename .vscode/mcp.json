@@ -4,7 +4,9 @@
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-github"],
       "env": {
-        "GITHUB_PERSONAL_ACCESS_TOKEN": "${input:github_token}"
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${input:github_token}",
+        "GITHUB_USERNAME": "${input:github_username}",
+        "GITHUB_REPOSITORY": "awesome-copilot"
       }
     },
     "atlassian": {
@@ -21,6 +23,12 @@
       "type": "promptString",
       "description": "GitHub Personal Access Token",
       "password": true
+    },
+    {
+      "id": "github_username",
+      "type": "promptString",
+      "description": "GitHub Username",
+      "password": false
     }
   ]
 }
