@@ -1,18 +1,18 @@
-<!-- I want to review in Japanese. -->
+# Pull Request テンプレート
 
 ## 内容
 
-[チケット](url): xxx の改修をしました。
+- どんな変更・修正を行ったか、簡潔に記載してください。
+- 関連チケットや Issue があればリンクも貼ってください。
+
+[チケット](url):
 
 ## 動作確認項目
 
-- [x] xxxxxx
+- [x] 主要な機能・修正点の動作確認内容を箇条書きで記載してください。
+- [x] 正常系・異常系の確認も含めるとベターです。
 
 ## レビュー希望日
 
-mm/dd (曜日) までにレビューお願いします！
-
-<!-- for GitHub Copilot review rule -->
-<!-- レビューする際には、以下のprefix(接頭辞)をつけてください [must] [imo] (in my opinion) [nits](nitpick) [ask] [fyi] -->
-<!-- for GitHub Copilot review rule-->
-<!-- I want to review in Japanese. -->
+- いつまでにレビューしてほしいか記載してください。
+- 例: 07/20 (土) までにレビューお願いします！
