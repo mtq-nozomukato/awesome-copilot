@@ -1,15 +1,24 @@
 import { PasswordOptions } from '../types/password';
 
 export function generatePassword(options: PasswordOptions): string {
-  const { length, useSymbols, useUppercase, useLowercase } = options;
+  const { length, useSymbols, useUppercase, useLowercase, useNumbers, firstUppercase, forbiddenSymbols } = options;
   let chars = '';
   if (useLowercase) chars += 'abcdefghijklmnopqrstuvwxyz';
   if (useUppercase) chars += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   if (useSymbols) chars += '!@#$%^&*()_+-={}[]|:;<>,.?/';
-  chars += '0123456789';
+  if (useNumbers) chars += '0123456789';
+  // 禁止記号除外
+  if (forbiddenSymbols) {
+    chars = chars.split('').filter(c => !forbiddenSymbols.includes(c)).join('');
+  }
+  if (!chars) return '';
   let pw = '';
   for (let i = 0; i < length; i++) {
     pw += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  // 先頭大文字化
+  if (firstUppercase && pw.length > 0) {
+    pw = pw[0].toUpperCase() + pw.slice(1);
   }
   return pw;
 }

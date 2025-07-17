@@ -23,6 +23,9 @@ export default function Home() {
   const [useSymbols, setUseSymbols] = useState(true);
   const [useUppercase, setUseUppercase] = useState(true);
   const [useLowercase, setUseLowercase] = useState(true);
+  const [useNumbers, setUseNumbers] = useState(true);
+  const [firstUppercase, setFirstUppercase] = useState(false);
+  const [forbiddenSymbols, setForbiddenSymbols] = useState("");
   const [type, setType] = useState<PasswordType>('password');
   const [result, setResult] = useState("");
   const [copied, setCopied] = useState(false);
@@ -64,7 +67,10 @@ export default function Home() {
       useSymbols,
       useUppercase,
       useLowercase,
+      useNumbers,
       type,
+      firstUppercase,
+      forbiddenSymbols,
     };
     setResult(generatePassword(options));
   };
@@ -105,6 +111,12 @@ export default function Home() {
             <Checkbox id="symbols" label="記号含む" checked={useSymbols} onChange={e => setUseSymbols(e.target.checked)} />
             <Checkbox id="uppercase" label="大文字含む" checked={useUppercase} onChange={e => setUseUppercase(e.target.checked)} />
             <Checkbox id="lowercase" label="小文字含む" checked={useLowercase} onChange={e => setUseLowercase(e.target.checked)} />
+            <Checkbox id="numbers" label="数字含む" checked={useNumbers} onChange={e => setUseNumbers(e.target.checked)} />
+            <Checkbox id="first-uppercase" label="先頭を大文字にする" checked={firstUppercase} onChange={e => setFirstUppercase(e.target.checked)} />
+          </div>
+          <div className="flex items-center gap-2">
+            <label htmlFor="forbidden-symbols" className="font-medium dark:text-white">禁止記号:</label>
+            <Input id="forbidden-symbols" type="text" value={forbiddenSymbols} onChange={e => setForbiddenSymbols(e.target.value)} className="w-32" aria-label="禁止記号を指定" placeholder="例: @#$" />
           </div>
           <div className="flex gap-4 flex-wrap" role="radiogroup" aria-label="生成タイプ">
             <Radio id="type-password" label="パスワード" name="type" value="password" checked={type === "password"} onChange={() => setType("password")}/>
