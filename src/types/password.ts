@@ -6,7 +6,10 @@ export type PasswordOptions = {
   useSymbols: boolean;
   useUppercase: boolean;
   useLowercase: boolean;
+  useNumbers: boolean;
   type: PasswordType;
+  firstUppercase?: boolean;
+  forbiddenSymbols?: string;
 };
 
 export type PasswordResult = {
