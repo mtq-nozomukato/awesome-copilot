@@ -1,0 +1,25 @@
+{
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    "tw`([^`]*)",
+    "tw(.*?['\"]([^)]+)['\"])"
+  ],
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    { "text": "コミットメッセージは、日本語で生成してください" }
+  ],
+  "github.copilot.chat.reviewSelection.instructions": [
+    { "text": "レビューコメントは日本語で記載してください" }
+  ],
+  "github.copilot.chat.testGeneration.instructions": [
+    { "file": ".github/instructions/testing.instructions.md" }
+  ],
+  "github.copilot.chat.pullRequestDescriptionGeneration.instructions": [
+    {
+      "text": "コミットメッセージとチケット番号を元タイトルを追加し、日本語でプルリクエストの説明を生成してください。"
+    }
+  ],
+  "chat.tools.autoApprove": true
+}
